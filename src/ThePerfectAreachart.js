@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import {
-  BarChart,
-  Bar,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -19,15 +19,15 @@ const StyledCard = styled.div`
   background-clip: border-box;
   border-radius: 1rem;
   width: 400px;
-  height: 280px;
+  height: 220px;
 `;
 
-const Wrapper = ({ data, bars }) => {
+const Wrapper = ({ data, areas }) => {
   return (
     <StyledWrapper>
       <StyledCard>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart
+          <AreaChart
             data={data}
             margin={{
               top: 20,
@@ -40,7 +40,7 @@ const Wrapper = ({ data, bars }) => {
             <XAxis
               axisLine={false}
               tickLine={false}
-              interval={1}
+              interval={0}
               dataKey="name"
             />
             <YAxis
@@ -49,16 +49,16 @@ const Wrapper = ({ data, bars }) => {
               tickLine={false}
               width={40}
             />
-            {bars.map((bar) => (
-              <Bar
-                key={bar.key}
-                barSize={16}
-                dataKey={bar.key}
-                stackId="a"
-                fill={bar.fill}
+            {areas.map((area) => (
+              <Area
+                type="monotone"
+                key={area.key}
+                dataKey={area.key}
+                fill={area.fill}
+                stroke={0}
               />
             ))}
-          </BarChart>
+          </AreaChart>
         </ResponsiveContainer>
       </StyledCard>
     </StyledWrapper>

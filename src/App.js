@@ -1,23 +1,50 @@
-import Barchart from "./ThePerfectBarchart";
+import Chart from "./ThePerfectAreachart";
 
-const data = [],
-  start = 100;
+const data = [
+  {
+    name: "J",
+    pv: 0,
+    uv: 0,
+  },
+  {
+    name: "F",
+    pv: 50,
+    uv: 70,
+  },
+  {
+    name: "M",
+    pv: 200,
+    uv: 30,
+  },
+  {
+    name: "A",
+    pv: 55,
+    uv: 160,
+  },
+  {
+    name: "M",
+    pv: 250,
+    uv: 24,
+  },
+  {
+    name: "J",
+    pv: 35,
+    uv: 67,
+  },
+  {
+    name: "J",
+    pv: 0,
+    uv: 0,
+  },
+];
 
-for (let i = 0; i < 12; i++) {
-  data.push({
-    name: `W${i + 1}`,
-    uv: i % 2 ? start + i * 2 : start - i * 2,
-    pv: i % 2 ? start + i * 2 : start - i * 2,
-  });
-}
-
-const bars = [
-  { key: "pv", fill: "#D763CD" },
-  { key: "uv", fill: "#212022" },
+const areas = [
+  { key: "pv", fill: "#e431ff" },
+  { key: "uv", fill: "#8F44FD" },
 ];
 
 function App() {
-  return <Barchart data={data} bars={bars} />;
+  return <Chart data={data} areas={areas} />;
 }
 
 export default App;
